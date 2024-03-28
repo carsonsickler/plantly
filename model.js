@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 require('dotenv').config();
+console.log(process.env.DATABASE_URL);
 mongoose.connect(process.env.DATABASE_URL).then(() => {
     console.log("Connected to the database");
 }).catch((err) => {
@@ -7,8 +8,7 @@ mongoose.connect(process.env.DATABASE_URL).then(() => {
 })
 
 
-
-const plantCycleSchema = new mongoose.Schema({
+const readingsSchema = new mongoose.Schema({
     temperature: {
         type: Number,
         required: true,
@@ -29,14 +29,33 @@ const plantCycleSchema = new mongoose.Schema({
         required: true,
         minlength: 1,
     },
-    resevoir: {
+    reservoir: {
         type: Boolean,
         required: true
     }
 }, {timestamps: true});
 
-const plantCycle = mongoose.model("PlantCycle", puzzleSchema);
+const plantSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true,
+        minlength: 1,
+    },
+    type: {
+        type: String,
+        required: true,
+        minlength: 1,
+    },
+    readings: {
+        type: [readingsSchema],
+        ref: "Readings"
+    }
+});
+
+const Plant = mongoose.model("Plant", plantSchema);
+const Readings = mongoose.model("Readings", readingsSchema);
 
 module.exports = {
-    plantCycle: plantCycle
+    Plant: Plant,
+    Readings: Readings
 }
