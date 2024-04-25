@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 require('dotenv').config();
-console.log(process.env.DATABASE_URL);
 mongoose.connect(process.env.DATABASE_URL).then(() => {
     console.log("Connected to the database");
 }).catch((err) => {
@@ -49,6 +48,11 @@ const plantSchema = new mongoose.Schema({
     readings: {
         type: [readingsSchema],
         ref: "Readings"
+    },
+    lastWatered: {
+        type: Date,
+        required: true,
+        default: Date.now
     }
 });
 
