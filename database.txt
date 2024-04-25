@@ -1,9 +1,0 @@
-carsonsickler@gmail.com
-mongosh "mongodb+srv://plantly.vseg2pt.mongodb.net/" --apiVersion 1 --username carsonMac
-hvui1cHch7CjhyMR
-
-d00411703@utahtech.edu
-mongosh "mongodb+srv://cluster0.8ldewsh.mongodb.net/" --apiVersion 1 --username carsonMac
-fF9O4BjHgRqvGyz8
-
-mongodb+srv://carsonMac:fF9O4BjHgRqvGyz8@plantly.vseg2pt.mongodb.net/?retryWrites=true&w=majority&appName=Plantly
